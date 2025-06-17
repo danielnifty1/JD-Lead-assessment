@@ -39,6 +39,7 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-av
 
 # Permissions
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+RUN if [ -f storage/logs/laravel.log ]; then tail -n 50 storage/logs/laravel.log; else echo "No logs found"; fi
 
 
 # Laravel artisan setup
