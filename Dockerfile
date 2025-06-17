@@ -43,8 +43,7 @@ RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cac
 
 # Laravel artisan setup
 RUN php artisan config:cache && \
-    php artisan storage:link && \
- chown -R www-data:www-data storage bootstrap/cache
+    php artisan storage:link && 
 
 EXPOSE 80
 CMD ["apache2-foreground"]
