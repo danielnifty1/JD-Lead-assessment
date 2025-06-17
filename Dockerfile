@@ -42,7 +42,7 @@ RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cac
 
 
 # Laravel artisan setup
-RUN  php artisan storage:link 
+RUN  php artisan storage:link && php artisan storage:link \
 
 
 # Set correct permissions
