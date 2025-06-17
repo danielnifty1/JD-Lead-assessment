@@ -38,13 +38,14 @@ RUN composer install --optimize-autoloader --no-dev
 COPY .env.example .env
 RUN php artisan key:generate
 
+
 # Fix permissions
 RUN mkdir -p storage/logs && \
     chown -R www-data:www-data storage bootstrap/cache && \
     chmod -R ug+rwx storage bootstrap/cache
 
-    RUN sed -i 's/APACHE_RUN_USER=www-data/APACHE_RUN_USER=www-data/' /etc/apache2/envvars
-
+# Ensure Apache runs as www-data
+RUN sed -i 's/APACHE_RUN_USER=www-data/APACHE_RUN_USER=www-data/' /etc/apache2/envvars
 # Run Laravel setup commands
 RUN php artisan config:cache && \
     php artisan migrate --force && \
