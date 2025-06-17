@@ -40,5 +40,16 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-av
 # Permissions
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
+
+# Laravel artisan setup
+RUN php artisan config:cache \
+ && php artisan storage:link \
+ && php artisan migrate --force
+
+# Set correct permissions
+RUN chown -R www-data:www-data storage bootstrap/cache
+
 EXPOSE 80
 CMD ["apache2-foreground"]
+
+
