@@ -46,5 +46,6 @@ RUN mkdir -p storage/logs bootstrap/cache && \
 
 # Do not run artisan setup during build, run at container startup if needed
 # Start Apache
+RUN php artisan storage:link
 EXPOSE 80
 CMD ["apache2-foreground"]
