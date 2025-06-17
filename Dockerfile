@@ -39,8 +39,11 @@ COPY .env.example .env
 RUN php artisan key:generate
 
 # Fix permissions
-RUN chown -R www-data:www-data storage bootstrap/cache && \
-    chmod -R 775 storage bootstrap/cache
+RUN mkdir -p storage/logs && \
+    chown -R www-data:www-data storage bootstrap/cache && \
+    chmod -R ug+rwx storage bootstrap/cache
+
+    RUN sed -i 's/APACHE_RUN_USER=www-data/APACHE_RUN_USER=www-data/' /etc/apache2/envvars
 
 # Run Laravel setup commands
 RUN php artisan config:cache && \
