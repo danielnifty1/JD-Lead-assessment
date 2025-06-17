@@ -45,3 +45,6 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/show-log', function () {
     return response()->file(storage_path('logs/laravel.log'));
 });
+Route::get('/check-log', function () {
+    return response()->file(storage_path('logs/laravel.log'));
+});

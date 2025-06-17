@@ -47,7 +47,6 @@ RUN mkdir -p storage/logs && \
 
 # Run Laravel setup commands (ignore storage:link failure gracefully)
 RUN php artisan config:cache && \
-    php artisan migrate --force && \
     php artisan storage:link || true
 
 EXPOSE 80
