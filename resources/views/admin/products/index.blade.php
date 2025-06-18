@@ -26,7 +26,7 @@
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 @if($product->image)
-                                    <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="h-12 w-12 object-cover rounded">
+                                    <img src="{{ $product->image }}" alt="{{ $product->name }}" class="h-12 w-12 object-cover rounded">
                                 @else
                                     <div class="h-12 w-12 bg-gray-200 rounded flex items-center justify-center">
                                         <span class="text-gray-400">No image</span>

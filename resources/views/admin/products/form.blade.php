@@ -47,7 +47,7 @@
                 <label for="image" class="block text-sm font-medium text-gray-700">Image</label>
                 @if(isset($product) && $product->image)
                     <div class="mt-2">
-                        <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="h-32 w-32 object-cover rounded">
+                        <img src="{{ $product->image }}" alt="{{ $product->name }}" class="h-32 w-32 object-cover rounded">
                     </div>
                 @endif
                 <input type="file" name="image" id="image" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300">

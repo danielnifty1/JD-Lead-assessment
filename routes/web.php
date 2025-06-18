@@ -8,6 +8,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
+use Illuminate\Http\Request;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -47,4 +49,34 @@ Route::get('/show-log', function () {
 });
 Route::get('/check-log', function () {
     return response()->file(storage_path('logs/laravel.log'));
+});
+
+Route::get('/uploads', function () {
+    return view('uploads');
+});
+
+
+Route::post('/uploads', function (Request $request) {
+
+    $uploadedFileUrl = Cloudinary::upload(
+        $request->file('file')->getRealPath()
+    )->getSecurePath();
+
+    return response()->json(['url' => $uploadedFileUrl]);
+
+
+
+
+    // // return response()->file(storage_path('logs/laravel.log'));
+    //  $uploadedFileUrl = cloudinary()->upload($request->file('file')->getRealPath())->getSecurePath();
+
+    // // $uploadedFileUrl = Cloudinary::upload($request->file('file')->getRealPath())->getSecurePath();
+    // return response()->json(['url' => $uploadedFileUrl]);
+
+    // // return [
+    // //     'cloud_name' => env('CLOUDINARY_CLOUD_NAME'),
+    // //     'api_key'    => env('CLOUDINARY_API_KEY'),
+    // //     'api_secret' => env('CLOUDINARY_API_SECRET'),
+    // //     'url'        => env('CLOUDINARY_URL'),
+    // // ];
 });
