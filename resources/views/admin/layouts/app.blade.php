@@ -27,10 +27,10 @@
                             </a>
                         </div>
                         <!-- Desktop menu -->
-                        <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <div class="hidden sm:ml-6 sm:flex sm:space-x-8 items-center justify-center">
                             <a href="{{ route('admin.products.index') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Products</a>
                             <a href="{{ route('admin.orders.index') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Orders</a>
-                            <a href="{{ route('home') }}" class="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-300 hover:text-white">View Site</a>
+                            <a href="{{ route('home') }}" class="inline-flex items-center px-1 text-sm font-medium text-gray-300 hover:text-white">View Site</a>
                         </div>
                     </div>
                     <div class="hidden sm:ml-6 sm:flex sm:items-center">

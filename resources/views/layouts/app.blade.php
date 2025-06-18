@@ -26,11 +26,11 @@
                     <div class="flex">
                         <div class="flex-shrink-0 flex items-center">
                             <a href="{{ route('home') }}" class="text-xl font-bold text-gray-800">
-                                {{ config('app.name', 'Laravel') }}
+                                <img src="https://res.cloudinary.com/dhryqsuf8/image/upload/v1750213978/yqu96gbwygwakjlynmea.png" alt="Logo" class="h-1 w-1" style="width: 100px; height: 100px;">
                             </a>
                         </div>
                         <!-- Desktop menu -->
-                        <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <div class="hidden sm:ml-6 sm:flex sm:space-x-8 items-center justify-center">
                             <a href="{{ route('products.index') }}" class="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">Products</a>
                             @auth
                                 <a href="{{ route('cart.index') }}" class="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">Cart</a>

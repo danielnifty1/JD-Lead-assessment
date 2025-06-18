@@ -33,7 +33,7 @@
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="flex items-center">
                                                 @if($item->product->image)
-                                                    <img src="{{ asset('storage/' . $item->product->image) }}" alt="{{ $item->product->name }}" class="h-12 w-12 object-cover rounded">
+                                                    <img src="{{$item->product->image }}" alt="{{ $item->product->name }}" class="h-12 w-12 object-cover rounded">
                                                 @endif
                                                 <div class="ml-4">
                                                     <div class="text-sm font-medium text-gray-900">{{ $item->product->name }}</div>
